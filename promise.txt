@@ -57,4 +57,4 @@ setTimeout(() => {
   p.then(value => {
     console.log("Hello " + value); // Hello World
   });
-}, 100);
+}, 100);.
