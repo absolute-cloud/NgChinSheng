@@ -1,0 +1,60 @@
+q1:
+p.then(value => console.log(value));
+
+q2:
+p.catch(err => {
+  console.log(err); // Error: Oops!
+});
+
+q3:
+p.then(value => {
+  console.log(value); // { id: 1, name: 'Alice' }
+});
+
+q4:
+p.then(value => {
+  console.log(value.name); // Alice
+});
+
+q5:
+p.catch(err => {
+  console.log(err); // Error: Invalid id
+});
+
+q6:
+p.finally(() => {
+  console.log("Promised settled");
+});
+
+q7:
+p.then(value => {
+  console.log(value * 2); // 42
+});
+
+q8:
+p.catch(err => {
+  console.log(0); // 0
+});
+
+q9:
+Promise.all(promises).then(values => {
+  console.log(`(${values.length}), [${values}]`);
+});
+
+q10:
+const raceResult = Promise.race(promises);
+
+console.log(raceResult); // Promise { <pending> }
+
+raceResult.then(value => {
+  console.log(value); // b
+});
+
+bonus:
+console.log(p); // Promise { <pending> }
+
+setTimeout(() => {
+  p.then(value => {
+    console.log("Hello " + value); // Hello World
+  });
+}, 100);
